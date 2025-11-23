@@ -1,21 +1,5 @@
-#root {
-  min-height: 100vh;
-  background: var(--bg-gradient);
-}
+#root {}
 
-.app-shell {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
+.app-shell {}
 
-main {
-  flex: 1;
-  padding: clamp(1.5rem, 4vw, 3rem) 1rem clamp(2.5rem, 5vw, 4rem);
-}
-
-@media (min-width: 768px) {
-  main {
-    padding-inline: 2rem;
-  }
-}
+main {}

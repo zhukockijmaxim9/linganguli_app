@@ -1,167 +1,41 @@
-.page {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-}
+.page {}
 
-.breadcrumb {
-  margin-bottom: 1.5rem;
-}
+.breadcrumb {}
 
-.pageHead {
-  display: flex;
-  justify-content: space-between;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
+.pageHead {}
 
-.statRow {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 1rem;
-}
+.statRow {}
 
-.statRow div {
-  background: var(--surface);
-  border-radius: var(--radius);
-  padding: 1rem;
-  text-align: center;
-  box-shadow: var(--shadow);
-}
+.statValue {}
 
-.statValue {
-  font-size: 1.6rem;
-  color: var(--surface-dark);
-  display: block;
-}
+.tabRow {}
 
-.tabRow {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
-  margin: 2rem 0 1rem;
-}
+.tabBtn {}
 
-.tabBtn {
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  padding: 0.4rem 1.25rem;
-  background: transparent;
-  font-weight: 600;
-  color: var(--text-muted);
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
+.active {}
 
-.tabBtn:hover,
-.tabBtn.active {
-  border-color: var(--brand);
-  color: var(--brand);
-  background: rgba(31, 79, 216, 0.08);
-}
+.categoryBlock {}
 
-.categoryBlock {
-  margin-top: 1.5rem;
-}
+.cardGrid {}
 
-.cardGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.25rem;
-}
+.achievementCard {}
 
-.achievementCard {
-  display: flex;
-  flex-direction: column;
-  gap: 0.9rem;
-  border-top: 5px solid transparent;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
+.earned {}
 
-.achievementCard:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 45px rgba(22, 54, 135, 0.15);
-}
+.cardHead {}
 
-.achievementCard.earned {
-  border-top-color: var(--accent);
-}
+.cardBody {}
 
-.cardHead {
-  display: flex;
-  gap: 0.9rem;
-}
+.reward {}
 
-.cardHead i {
-  width: 50px;
-  height: 50px;
-  border-radius: 16px;
-  background: rgba(31, 79, 216, 0.12);
-  display: grid;
-  place-items: center;
-  color: var(--brand);
-  font-size: 1.2rem;
-}
+.date {}
 
-.cardBody {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  color: var(--text-muted);
-}
+.progressInfo {}
 
-.reward {
-  font-weight: 700;
-  color: var(--accent-strong);
-}
+.highlightGrid {}
 
-.date {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-}
+.highlightCard {}
 
-.progressInfo {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
+.recentList {}
 
-.highlightGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1rem;
-}
-
-.highlightCard {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-}
-
-.highlightCard i {
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
-  background: rgba(31, 79, 216, 0.12);
-  display: grid;
-  place-items: center;
-  color: var(--brand);
-}
-
-.recentList {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.recentItem {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  align-items: center;
-}
-
-.recentItem i {
-  font-size: 1.25rem;
-  color: var(--brand);
-}
+.recentItem {}
