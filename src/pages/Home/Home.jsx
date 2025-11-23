@@ -45,8 +45,7 @@ const practiceTasks = [
     difficulty: 'Легко',
     difficultyIcon: 'fas fa-leaf',
     xp: '+10 XP',
-    description:
-      'Создайте простой калькулятор, который выполняет основные арифметические операции.',
+    description: 'Создайте простой калькулятор, который выполняет основные арифметические операции.',
     hints: ['💡 Используйте input() для ввода'],
   },
 ]
@@ -81,44 +80,41 @@ const contactOptions = [
   { icon: 'fas fa-video', label: 'Видеозвонок' },
 ]
 
+const heroStats = [
+  { label: 'уроков', value: '50+' },
+  { label: 'задач', value: '200+' },
+  { label: 'студентов', value: '10 000+' },
+]
+
 function Home() {
   return (
-    <div className={styles.page}>
-      <section className={`${styles.section} ${styles.hero}`} id="hero">
-        <div className={styles.container}>
+    <main className={styles.page}>
+      <section className={`section ${styles.hero}`} id="hero">
+        <div className="container">
           <div className={styles.heroGrid}>
-            <div className={styles.heroText}>
+            <header className={styles.heroText}>
               <h1>Изучай Python с удовольствием</h1>
-              <p>
-                Интерактивные уроки, практические задания и мгновенная обратная
-                связь. Сделай программирование своим хобби!
-              </p>
-              <div className={styles.heroStats}>
-                <div>
-                  <span className={styles.statNumber}>50+</span>
-                  <span>уроков</span>
-                </div>
-                <div>
-                  <span className={styles.statNumber}>200+</span>
-                  <span>задач</span>
-                </div>
-                <div>
-                  <span className={styles.statNumber}>10 000+</span>
-                  <span>студентов</span>
-                </div>
-              </div>
-              <button type="button" className={styles.primaryBtn}>
+              <p>Интерактивные уроки, практические задания и мгновенная обратная связь. Сделай программирование своим хобби!</p>
+              <dl className={styles.heroStats}>
+                {heroStats.map((stat) => (
+                  <div key={stat.label}>
+                    <dt className={styles.statNumber}>{stat.value}</dt>
+                    <dd>{stat.label}</dd>
+                  </div>
+                ))}
+              </dl>
+              <button type="button" className="btn btn-primary">
                 <i className="fas fa-play" aria-hidden="true" />
                 <span>Начать обучение</span>
               </button>
-            </div>
-            <div className={styles.codeCard}>
-              <div className={styles.codeHead}>
+            </header>
+            <article className={`card ${styles.codeCard}`}>
+              <header className={styles.codeHead}>
                 <span className={styles.codeDots} aria-hidden="true">
                   ● ● ●
                 </span>
                 <span>main.py</span>
-              </div>
+              </header>
               <pre className={styles.codeBody}>
 {`def welcome():
     print("Привет, программист!")
@@ -127,58 +123,49 @@ function Home() {
 result = welcome()
 print(result)`}
               </pre>
-            </div>
+            </article>
           </div>
         </div>
       </section>
 
-      <section className={styles.section} id="courses">
-        <div className={styles.container}>
-          <div className={styles.sectionHead}>
+      <section className="section" id="courses">
+        <div className="container">
+          <header className="section-head">
             <h2>Выбери свой путь в Python</h2>
             <p>Курсы для любого уровня подготовки</p>
-          </div>
+          </header>
           <div className={styles.cardGrid}>
             {courseCards.map((course) => (
-              <article
-                key={course.title}
-                className={`${styles.courseCard} ${
-                  course.locked ? styles.locked : ''
-                }`}
-              >
+              <article key={course.title} className={`card ${styles.courseCard} ${course.locked ? styles.locked : ''}`}>
                 <header className={styles.courseHead}>
                   <div className={styles.courseIcon}>
                     <i className="fas fa-code" aria-hidden="true" />
                   </div>
-                  <span className={styles.badge}>{course.badge}</span>
-                  <div className={styles.progress}>
-                    <div
-                      className={styles.progressFill}
-                      style={{ width: `${course.progress}%` }}
-                    />
+                  <span className="badge">{course.badge}</span>
+                  <div className={styles.progressInfo}>
+                    <div className="progress-track">
+                      <span style={{ width: `${course.progress}%` }} />
+                    </div>
                     <span>{course.progress}%</span>
                   </div>
                 </header>
                 <h3>{course.title}</h3>
                 <p>{course.description}</p>
-                <div className={styles.courseMeta}>
-                  <span>
+                <ul className={`${styles.courseMeta} list-clean`}>
+                  <li>
                     <i className="fas fa-book" aria-hidden="true" />
                     {course.lessons}
-                  </span>
-                  <span>
+                  </li>
+                  <li>
                     <i className="fas fa-clock" aria-hidden="true" />
                     {course.hours}
-                  </span>
-                  <span>
+                  </li>
+                  <li>
                     <i className="fas fa-trophy" aria-hidden="true" />
                     {course.reward}
-                  </span>
-                </div>
-                <button
-                  type="button"
-                  className={course.locked ? styles.lockedBtn : styles.primaryBtn}
-                >
+                  </li>
+                </ul>
+                <button type="button" className={course.locked ? styles.lockedBtn : 'btn btn-primary'}>
                   {course.cta}
                 </button>
               </article>
@@ -187,30 +174,30 @@ print(result)`}
         </div>
       </section>
 
-      <section className={styles.section} id="practice">
-        <div className={styles.container}>
-          <div className={styles.sectionHead}>
+      <section className="section" id="practice">
+        <div className="container">
+          <header className="section-head">
             <h2>Практика каждый день</h2>
             <p>Задачи для закрепления знаний</p>
-          </div>
+          </header>
           <div className={styles.cardGrid}>
             {practiceTasks.map((task) => (
-              <article key={task.title} className={styles.taskCard}>
-                <div className={styles.taskHead}>
+              <article key={task.title} className={`card ${styles.taskCard}`}>
+                <header className={styles.taskHead}>
                   <span>
                     <i className={task.difficultyIcon} aria-hidden="true" />
                     {task.difficulty}
                   </span>
                   <span>{task.xp}</span>
-                </div>
+                </header>
                 <h3>{task.title}</h3>
                 <p>{task.description}</p>
-                <div className={styles.hints}>
+                <ul className={`${styles.hints} list-clean`}>
                   {task.hints.map((hint) => (
-                    <span key={hint}>{hint}</span>
+                    <li key={hint}>{hint}</li>
                   ))}
-                </div>
-                <button type="button" className={styles.primaryBtn}>
+                </ul>
+                <button type="button" className="btn btn-primary">
                   Решить
                 </button>
               </article>
@@ -219,30 +206,24 @@ print(result)`}
         </div>
       </section>
 
-      <section className={styles.section} id="achievements">
-        <div className={styles.container}>
-          <div className={styles.sectionHead}>
+      <section className="section" id="achievements">
+        <div className="container">
+          <header className="section-head">
             <h2>Достижения</h2>
             <p>Мотивируйте себя наградами</p>
-          </div>
+          </header>
           <div className={styles.cardGrid}>
             {achievements.map((item) => (
-              <article
-                key={item.title}
-                className={`${styles.achievementCard} ${
-                  item.earned ? styles.earned : ''
-                }`}
-              >
-                <div className={styles.achievementHead}>
+              <article key={item.title} className={`card ${styles.achievementCard} ${item.earned ? styles.earned : ''}`}>
+                <header className={styles.achievementHead}>
                   <i className={item.icon} aria-hidden="true" />
                   <h3>{item.title}</h3>
-                </div>
+                </header>
                 <p>{item.description}</p>
-                <div className={styles.progress}>
-                  <div
-                    className={styles.progressFill}
-                    style={{ width: `${item.progress}%` }}
-                  />
+                <div className={styles.progressInfo}>
+                  <div className="progress-track">
+                    <span style={{ width: `${item.progress}%` }} />
+                  </div>
                   <span>{item.progress}%</span>
                 </div>
               </article>
@@ -251,61 +232,61 @@ print(result)`}
         </div>
       </section>
 
-      <section className={styles.section}>
-        <div className={styles.container}>
-          <div className={styles.sectionHead}>
+      <section className="section">
+        <div className="container">
+          <header className="section-head">
             <h2>Помощь психолога</h2>
             <p>Поддержка рядом, когда нужна мотивация</p>
-          </div>
-          <div className={styles.modal}>
-            <div className={styles.modalHead}>
+          </header>
+          <article className={`card ${styles.modal}`}>
+            <header className={styles.modalHead}>
               <h3>Анна Петрова</h3>
               <span>Сертифицированный психолог</span>
-            </div>
+            </header>
             <div className={styles.modalBody}>
               <div className={styles.avatarLarge}>
-                <img
-                  src="https://via.placeholder.com/80x80/2196F3/FFFFFF?text=П"
-                  alt="Анна Петрова"
-                />
+                <img src="https://via.placeholder.com/80x80/2196F3/FFFFFF?text=П" alt="Анна Петрова" />
               </div>
               <div>
-                <div className={styles.rating}>
+                <div className={`${styles.rating} badge`}>
                   <i className="fas fa-star" aria-hidden="true" />
                   <span>4.9 (127 отзывов)</span>
                 </div>
                 <div className={styles.contactList}>
                   {contactOptions.map((option) => (
-                    <button key={option.label} type="button">
+                    <button key={option.label} type="button" className="btn btn-secondary">
                       <i className={option.icon} aria-hidden="true" />
                       <span>{option.label}</span>
                     </button>
                   ))}
                 </div>
                 <p>
-                  Кризисная ситуация? Звоните{' '}
-                  <a href="tel:88002000122">8-800-200-01-22</a>
+                  Кризисная ситуация? Звоните <a href="tel:88002000122">8-800-200-01-22</a>
                 </p>
               </div>
             </div>
-          </div>
+          </article>
         </div>
       </section>
 
-      <section className={styles.section}>
-        <div className={styles.container}>
-          <div className={styles.sectionHead}>
+      <section className="section">
+        <div className="container">
+          <header className="section-head">
             <h2>Редактор кода</h2>
             <p>Пробуйте идеи прямо на платформе</p>
-          </div>
-          <div className={styles.modal}>
-            <div className={styles.modalHead}>
+          </header>
+          <article className={`card ${styles.modal}`}>
+            <header className={styles.modalHead}>
               <h3>main.py</h3>
               <div className={styles.editorActions}>
-                <button type="button">Запустить</button>
-                <button type="button">Проверить</button>
+                <button type="button" className="btn btn-secondary">
+                  Запустить
+                </button>
+                <button type="button" className="btn btn-secondary">
+                  Проверить
+                </button>
               </div>
-            </div>
+            </header>
             <div className={styles.modalBody}>
               <div className={styles.editor}>
                 <div className={styles.editorBar}>
@@ -324,25 +305,27 @@ result = hello_world()
 print(result)`}
                 />
               </div>
-              <div className={styles.output}>
-                <div className={styles.outputHead}>
+              <section className={styles.output}>
+                <header className={styles.outputHead}>
                   <span>Вывод</span>
-                  <button type="button">Очистить</button>
-                </div>
+                  <button type="button" className="btn btn-secondary">
+                    Очистить
+                  </button>
+                </header>
                 <div className={styles.outputBody}>
                   <div>Привет, мир!</div>
                   <div>Успех!</div>
                 </div>
-              </div>
+              </section>
             </div>
-          </div>
+          </article>
         </div>
       </section>
 
       <button type="button" className={styles.themeToggle} aria-label="Сменить тему">
         <i className="fas fa-moon" aria-hidden="true" />
       </button>
-    </div>
+    </main>
   )
 }
 
