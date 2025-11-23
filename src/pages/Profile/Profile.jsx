@@ -74,46 +74,43 @@ const timeline = [
 
 function Profile() {
   return (
-    <div className={styles.page}>
+    <main className={styles.page}>
       <section className={styles.profileHero}>
-        <div className={styles.container}>
+        <div className="container">
           <div className={styles.profileRow}>
             <div className={styles.avatarBlock}>
-              <img
-                src="https://via.placeholder.com/120x120/4CAF50/FFFFFF?text=U"
-                alt="Аватар пользователя"
-              />
-              <button type="button" className={styles.iconBtn} aria-label="Изменить фото">
+              <img src="https://via.placeholder.com/120x120/4CAF50/FFFFFF?text=U" alt="Аватар пользователя" />
+              <button type="button" className={`btn btn-secondary ${styles.iconBtn}`} aria-label="Изменить фото">
                 <i className="fas fa-camera" aria-hidden="true" />
               </button>
             </div>
             <div className={styles.profileInfo}>
               <h1>Алексей Программистов</h1>
               <p>Python Developer</p>
-              <div className={styles.statRow}>
+              <dl className={styles.statRow}>
                 {profileStats.map((stat) => (
                   <div key={stat.label}>
-                    <span className={styles.statValue}>{stat.value}</span>
-                    <span>{stat.label}</span>
+                    <dt className={styles.statValue}>{stat.value}</dt>
+                    <dd>{stat.label}</dd>
                   </div>
                 ))}
-              </div>
+              </dl>
               <div className={styles.levelBar}>
                 <div>
                   <span>Уровень 12</span>
                   <small>650 / 1000 XP</small>
                 </div>
-                <div className={styles.progress}>
-                  <div className={styles.progressFill} style={{ width: '65%' }} />
+                <div className="progress-track">
+                  <span style={{ width: '65%' }} />
                 </div>
               </div>
             </div>
             <div className={styles.heroActions}>
-              <button type="button" className={styles.primaryBtn}>
+              <button type="button" className="btn btn-primary">
                 <i className="fas fa-edit" aria-hidden="true" />
                 Редактировать
               </button>
-              <button type="button" className={styles.secondaryBtn}>
+              <button type="button" className="btn btn-secondary">
                 <i className="fas fa-share" aria-hidden="true" />
                 Поделиться
               </button>
@@ -122,22 +119,18 @@ function Profile() {
         </div>
       </section>
 
-      <section className={styles.section}>
-        <div className={styles.container}>
-          <div className={styles.tabRow}>
+      <section className="section">
+        <div className="container">
+          <nav className={styles.tabRow} aria-label="Разделы профиля">
             {['Обзор', 'Достижения', 'Курсы', 'Активность', 'Настройки'].map((tab, index) => (
-              <button
-                key={tab}
-                type="button"
-                className={`${styles.tabBtn} ${index === 0 ? styles.active : ''}`}
-              >
+              <button key={tab} type="button" className={`${styles.tabBtn} ${index === 0 ? styles.active : ''}`}>
                 {tab}
               </button>
             ))}
-          </div>
+          </nav>
 
           <div className={styles.grid}>
-            <article className={styles.card}>
+            <article className={`card ${styles.card}`}>
               <header className={styles.cardHead}>
                 <h3>Прогресс обучения</h3>
                 <button type="button" className={styles.linkBtn}>
@@ -151,15 +144,15 @@ function Profile() {
                       <span>{item.title}</span>
                       <span>{item.progress}%</span>
                     </div>
-                    <div className={styles.progress}>
-                      <div className={styles.progressFill} style={{ width: `${item.progress}%` }} />
+                    <div className="progress-track">
+                      <span style={{ width: `${item.progress}%` }} />
                     </div>
                   </div>
                 ))}
               </div>
             </article>
 
-            <article className={styles.card}>
+            <article className={`card ${styles.card}`}>
               <header className={styles.cardHead}>
                 <h3>Последняя активность</h3>
               </header>
@@ -176,7 +169,7 @@ function Profile() {
               </div>
             </article>
 
-            <article className={styles.card}>
+            <article className={`card ${styles.card}`}>
               <header className={styles.cardHead}>
                 <h3>Статистика за неделю</h3>
               </header>
@@ -195,7 +188,7 @@ function Profile() {
               </div>
             </article>
 
-            <article className={styles.card}>
+            <article className={`card ${styles.card}`}>
               <header className={styles.cardHead}>
                 <h3>Цели обучения</h3>
                 <button type="button" className={styles.linkBtn}>
@@ -210,11 +203,8 @@ function Profile() {
                       <p>{goal.text}</p>
                     </div>
                     <div className={styles.goalProgress}>
-                      <div className={styles.progress}>
-                        <div
-                          className={styles.progressFill}
-                          style={{ width: `${goal.progress % 100}%` }}
-                        />
+                      <div className="progress-track">
+                        <span style={{ width: `${goal.progress % 100}%` }} />
                       </div>
                       <span>{goal.progress}%</span>
                     </div>
@@ -224,33 +214,25 @@ function Profile() {
             </article>
           </div>
 
-          <article className={styles.card}>
+          <article className={`card ${styles.card}`}>
             <header className={styles.cardHead}>
               <h3>Достижения</h3>
               <span>Получено: 8 из 25</span>
             </header>
             <div className={styles.cardBody}>
-              <div className={styles.progress}>
-                <div className={styles.progressFill} style={{ width: '32%' }} />
+              <div className="progress-track">
+                <span style={{ width: '32%' }} />
               </div>
               <div className={styles.achievementGrid}>
                 {achievements.map((achievement) => (
-                  <div
-                    key={achievement.title}
-                    className={`${styles.achievementCard} ${
-                      achievement.earned ? styles.earned : ''
-                    }`}
-                  >
+                  <div key={achievement.title} className={`${styles.achievementCard} ${achievement.earned ? styles.earned : ''}`}>
                     <i className={achievement.icon} aria-hidden="true" />
                     <h4>{achievement.title}</h4>
                     <p>{achievement.text}</p>
                     {achievement.date && <span>{achievement.date}</span>}
                     {typeof achievement.progress === 'number' && (
-                      <div className={styles.progress}>
-                        <div
-                          className={styles.progressFill}
-                          style={{ width: `${achievement.progress}%` }}
-                        />
+                      <div className="progress-track">
+                        <span style={{ width: `${achievement.progress}%` }} />
                       </div>
                     )}
                   </div>
@@ -259,7 +241,7 @@ function Profile() {
             </div>
           </article>
 
-          <article className={styles.card}>
+          <article className={`card ${styles.card}`}>
             <header className={styles.cardHead}>
               <h3>Мои курсы</h3>
             </header>
@@ -272,11 +254,8 @@ function Profile() {
                       <span>{course.progress}%</span>
                     </div>
                     <p>{course.description}</p>
-                    <div className={styles.progress}>
-                      <div
-                        className={styles.progressFill}
-                        style={{ width: `${course.progress}%` }}
-                      />
+                    <div className="progress-track">
+                      <span style={{ width: `${course.progress}%` }} />
                     </div>
                     <div className={styles.courseMeta}>
                       <span>
@@ -293,10 +272,10 @@ function Profile() {
                       </span>
                     </div>
                     <div className={styles.courseActions}>
-                      <button type="button" className={styles.primaryBtn}>
+                      <button type="button" className="btn btn-primary">
                         Продолжить
                       </button>
-                      <button type="button" className={styles.secondaryBtn}>
+                      <button type="button" className="btn btn-secondary">
                         Подробнее
                       </button>
                     </div>
@@ -306,7 +285,7 @@ function Profile() {
             </div>
           </article>
 
-          <article className={styles.card}>
+          <article className={`card ${styles.card}`}>
             <header className={styles.cardHead}>
               <h3>История активности</h3>
               <div className={styles.filters}>
@@ -341,7 +320,7 @@ function Profile() {
             </div>
           </article>
 
-          <article className={styles.card}>
+          <article className={`card ${styles.card}`}>
             <header className={styles.cardHead}>
               <h3>Настройки профиля</h3>
             </header>
@@ -357,10 +336,7 @@ function Profile() {
                 </label>
                 <label className={styles.formField}>
                   <span>О себе</span>
-                  <textarea
-                    rows={3}
-                    defaultValue="Изучаю Python и мечтаю стать разработчиком"
-                  />
+                  <textarea rows={3} defaultValue="Изучаю Python и мечтаю стать разработчиком" />
                 </label>
                 <label className={styles.formField}>
                   <span>Ежедневная цель (задач)</span>
@@ -387,10 +363,10 @@ function Profile() {
                   <span>Показывать прогресс друзьям</span>
                 </label>
                 <div className={styles.formActions}>
-                  <button type="button" className={styles.primaryBtn}>
+                  <button type="button" className="btn btn-primary">
                     Сохранить изменения
                   </button>
-                  <button type="button" className={styles.secondaryBtn}>
+                  <button type="button" className="btn btn-secondary">
                     Сбросить
                   </button>
                 </div>
@@ -399,7 +375,7 @@ function Profile() {
           </article>
         </div>
       </section>
-    </div>
+    </main>
   )
 }
 

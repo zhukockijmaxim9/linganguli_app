@@ -139,7 +139,7 @@ const reviews = [
     name: 'Анна Петрова',
     avatar: 'https://via.placeholder.com/40x40/4CAF50/FFFFFF?text=A',
     date: '2 дня назад',
-    text: 'Отличный курс для начинающих! Все объясняется очень понятно, много практических заданий.',
+    text: 'Отличный курс для начинающих! Все объясняется очень понятно, много практических заданий. Рекомендую!',
   },
   {
     name: 'Михаил Иванов',
@@ -151,120 +151,122 @@ const reviews = [
 
 function Courses() {
   return (
-    <div className={styles.page}>
-      <div className={styles.container}>
-        <nav className={styles.breadcrumb} aria-label="Хлебные крошки">
-          <Link to="/">Главная</Link>
-          <span>/</span>
-          <span>Курсы Python</span>
-        </nav>
+    <main className={styles.page}>
+      <section className="section">
+        <div className="container">
+          <nav className={styles.breadcrumb} aria-label="Хлебные крошки">
+            <Link to="/">Главная</Link>
+            <span>/</span>
+            <span>Курсы Python</span>
+          </nav>
 
-        <header className={styles.pageHead}>
-          <div>
-            <h1>Курсы Python</h1>
-            <p>Выберите курс, который подходит вашему уровню, и начните изучать Python.</p>
+          <header className={styles.pageHead}>
+            <div>
+              <h1>Курсы Python</h1>
+              <p>Выберите курс, который подходит вашему уровню, и начните изучать Python.</p>
+            </div>
+            <dl className={styles.statRow}>
+              {courseStats.map((stat) => (
+                <div key={stat.label}>
+                  <dt className={styles.statValue}>{stat.value}</dt>
+                  <dd>{stat.label}</dd>
+                </div>
+              ))}
+            </dl>
+          </header>
+
+          <div className={`card ${styles.filterBar}`}>
+            <nav className={styles.tabs} aria-label="Фильтр курсов">
+              {filterTabs.map((tab, index) => (
+                <button
+                  key={tab.id}
+                  type="button"
+                  className={`${styles.tabBtn} ${index === 0 ? styles.active : ''}`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </nav>
+            <div className={styles.filterInputs}>
+              <label className={styles.search}>
+                <i className="fas fa-search" aria-hidden="true" />
+                <input type="search" placeholder="Поиск курсов..." />
+              </label>
+              <select defaultValue="popular" aria-label="Сортировка">
+                <option value="popular">По популярности</option>
+                <option value="newest">Сначала новые</option>
+                <option value="difficulty">По сложности</option>
+                <option value="progress">По прогрессу</option>
+              </select>
+            </div>
           </div>
-          <div className={styles.statRow}>
-            {courseStats.map((stat) => (
-              <div key={stat.label}>
-                <span className={styles.statValue}>{stat.value}</span>
-                <span>{stat.label}</span>
-              </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <div className={styles.cardGrid}>
+            {courseCards.map((course) => (
+              <article key={course.title} className={`card ${styles.courseCard} ${course.locked ? styles.locked : ''}`}>
+                <header className={styles.courseHeader}>
+                  <div className={styles.icon}>
+                    <i className="fas fa-code" aria-hidden="true" />
+                  </div>
+                  <span className="badge">{course.badge}</span>
+                  <div className={styles.progressInfo}>
+                    <div className="progress-track">
+                      <span style={{ width: `${course.progress}%` }} />
+                    </div>
+                    <span>{course.progress}%</span>
+                  </div>
+                </header>
+                <h3>{course.title}</h3>
+                <p>{course.description}</p>
+                <ul className={`${styles.metaList} list-clean`}>
+                  <li>
+                    <i className="fas fa-book" aria-hidden="true" />
+                    {course.lessons}
+                  </li>
+                  <li>
+                    <i className="fas fa-clock" aria-hidden="true" />
+                    {course.hours}
+                  </li>
+                  <li>
+                    <i className="fas fa-trophy" aria-hidden="true" />
+                    {course.reward}
+                  </li>
+                  <li>
+                    <i className="fas fa-users" aria-hidden="true" />
+                    {course.students}
+                  </li>
+                </ul>
+                <ul className={`${styles.tags} list-clean`}>
+                  {course.topics.map((topic) => (
+                    <li key={topic}>{topic}</li>
+                  ))}
+                </ul>
+                <div className={styles.rating}>
+                  <i className="fas fa-star" aria-hidden="true" />
+                  <span>{course.rating}</span>
+                </div>
+                <footer className={styles.courseActions}>
+                  <button type="button" className={course.locked ? styles.lockedBtn : 'btn btn-primary'}>
+                    {course.locked ? 'Заблокировано' : 'Продолжить'}
+                  </button>
+                  <button type="button" className="btn btn-secondary">
+                    Подробнее
+                  </button>
+                </footer>
+              </article>
             ))}
           </div>
-        </header>
+        </div>
+      </section>
 
-        <section className={styles.filterBar}>
-          <div className={styles.tabs}>
-            {filterTabs.map((tab, index) => (
-              <button
-                key={tab.id}
-                type="button"
-                className={`${styles.tabBtn} ${index === 0 ? styles.active : ''}`}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
-          <div className={styles.filterInputs}>
-            <label className={styles.search}>
-              <i className="fas fa-search" aria-hidden="true" />
-              <input type="search" placeholder="Поиск курсов..." />
-            </label>
-            <select defaultValue="popular" aria-label="Сортировка">
-              <option value="popular">По популярности</option>
-              <option value="newest">Сначала новые</option>
-              <option value="difficulty">По сложности</option>
-              <option value="progress">По прогрессу</option>
-            </select>
-          </div>
-        </section>
-
-        <section className={styles.cardGrid}>
-          {courseCards.map((course) => (
-            <article
-              key={course.title}
-              className={`${styles.courseCard} ${course.locked ? styles.locked : ''}`}
-            >
-              <div className={styles.courseHeader}>
-                <div className={styles.icon}>
-                  <i className="fas fa-code" aria-hidden="true" />
-                </div>
-                <span className={styles.badge}>{course.badge}</span>
-                <div className={styles.progress}>
-                  <div
-                    className={styles.progressFill}
-                    style={{ width: `${course.progress}%` }}
-                  />
-                  <span>{course.progress}%</span>
-                </div>
-              </div>
-              <h3>{course.title}</h3>
-              <p>{course.description}</p>
-              <div className={styles.meta}>
-                <span>
-                  <i className="fas fa-book" aria-hidden="true" />
-                  {course.lessons}
-                </span>
-                <span>
-                  <i className="fas fa-clock" aria-hidden="true" />
-                  {course.hours}
-                </span>
-                <span>
-                  <i className="fas fa-trophy" aria-hidden="true" />
-                  {course.reward}
-                </span>
-                <span>
-                  <i className="fas fa-users" aria-hidden="true" />
-                  {course.students}
-                </span>
-              </div>
-              <div className={styles.tags}>
-                {course.topics.map((topic) => (
-                  <span key={topic}>{topic}</span>
-                ))}
-              </div>
-              <div className={styles.rating}>
-                <i className="fas fa-star" aria-hidden="true" />
-                <span>{course.rating}</span>
-              </div>
-              <div className={styles.courseActions}>
-                <button type="button" className={styles.primaryBtn}>
-                  {course.locked ? 'Заблокировано' : 'Продолжить'}
-                </button>
-                <button type="button" className={styles.secondaryBtn}>
-                  Подробнее
-                </button>
-              </div>
-            </article>
-          ))}
-        </section>
-      </div>
-
-      <section className={styles.section}>
-        <div className={styles.container}>
+      <section className="section">
+        <div className="container">
           <div className={styles.detailGrid}>
-            <article className={styles.detailCard}>
+            <article className={`card ${styles.detailCard}`}>
               <header className={styles.detailHead}>
                 <div className={styles.icon}>
                   <i className="fas fa-code" aria-hidden="true" />
@@ -274,25 +276,25 @@ function Courses() {
                   <p>Изучите базовые концепции программирования и синтаксис Python.</p>
                 </div>
               </header>
-              <div className={styles.meta}>
-                <span>
+              <ul className={`${styles.metaList} list-clean`}>
+                <li>
                   <i className="fas fa-clock" aria-hidden="true" />
                   3 часа
-                </span>
-                <span>
+                </li>
+                <li>
                   <i className="fas fa-book" aria-hidden="true" />
                   15 уроков
-                </span>
-                <span>
+                </li>
+                <li>
                   <i className="fas fa-trophy" aria-hidden="true" />
                   50 XP
-                </span>
-                <span>
+                </li>
+                <li>
                   <i className="fas fa-users" aria-hidden="true" />
                   2 500 студентов
-                </span>
-              </div>
-              <div className={styles.tabs}>
+                </li>
+              </ul>
+              <nav className={styles.tabs} aria-label="Детали курса">
                 <button type="button" className={`${styles.tabBtn} ${styles.active}`}>
                   Обзор
                 </button>
@@ -302,7 +304,7 @@ function Courses() {
                 <button type="button" className={styles.tabBtn}>
                   Отзывы
                 </button>
-              </div>
+              </nav>
               <div className={styles.overview}>
                 <h3>О курсе</h3>
                 <p>
@@ -330,15 +332,15 @@ function Courses() {
               </div>
             </article>
 
-            <article className={styles.detailCard}>
+            <article className={`card ${styles.detailCard}`}>
               <h3>Программа курса</h3>
               <div className={styles.curriculum}>
                 {curriculum.map((section) => (
-                  <div key={section.title} className={styles.curriculumSection}>
-                    <div className={styles.curriculumHead}>
+                  <section key={section.title} className={styles.curriculumSection}>
+                    <header className={styles.curriculumHead}>
                       <h4>{section.title}</h4>
                       <span>{section.duration}</span>
-                    </div>
+                    </header>
                     <div>
                       {section.lessons.map((lesson) => (
                         <div key={lesson.title} className={styles.lesson}>
@@ -348,12 +350,12 @@ function Courses() {
                         </div>
                       ))}
                     </div>
-                  </div>
+                  </section>
                 ))}
               </div>
             </article>
 
-            <article className={styles.detailCard}>
+            <article className={`card ${styles.detailCard}`}>
               <h3>Отзывы</h3>
               <div className={styles.reviewSummary}>
                 <div>
@@ -367,11 +369,8 @@ function Courses() {
                   {reviewSummary.breakdown.map((item) => (
                     <div key={item.label} className={styles.breakdownRow}>
                       <span>{item.label}</span>
-                      <div className={styles.progress}>
-                        <div
-                          className={styles.progressFill}
-                          style={{ width: `${item.percent}%` }}
-                        />
+                      <div className="progress-track">
+                        <span style={{ width: `${item.percent}%` }} />
                       </div>
                       <span>{item.percent}%</span>
                     </div>
@@ -380,7 +379,7 @@ function Courses() {
               </div>
               <div className={styles.reviewList}>
                 {reviews.map((review) => (
-                  <div key={review.name} className={styles.reviewItem}>
+                  <article key={review.name} className={styles.reviewItem}>
                     <img src={review.avatar} alt={review.name} />
                     <div>
                       <div className={styles.reviewHead}>
@@ -389,14 +388,14 @@ function Courses() {
                       </div>
                       <p>{review.text}</p>
                     </div>
-                  </div>
+                  </article>
                 ))}
               </div>
             </article>
           </div>
         </div>
       </section>
-    </div>
+    </main>
   )
 }
 
