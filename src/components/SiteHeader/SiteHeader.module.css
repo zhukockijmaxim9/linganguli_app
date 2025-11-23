@@ -1,19 +1,31 @@
-.bar {}
+.bar {
+  background-color: aquamarine;
 
-.container {}
+  display: flex;
+}
 
-.brand {}
+.brand {
+  display: flex;
+}
 
-.nav {}
+.nav {
+  display: flex;
+}
 
-.navLink {}
+.navLink {
+}
 
-.active {}
+.active {
+}
 
-.actions {}
+.actions {
+}
 
-.counter {}
+.counter {
+}
 
-.helpBtn {}
+.helpBtn {
+}
 
-.avatar {}
+.avatar {
+}
