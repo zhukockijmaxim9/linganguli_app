@@ -11,6 +11,48 @@
   font-weight: 400;
   color: #0f172a;
   background-color: #f4f6fb;
+
+  /* Фон */
+  --bg-gradient-start: #0c1f3d;
+  --bg-gradient-end: #09162c;
+
+  /* Текст */
+  --text-primary: #e8eef6;
+  --text-secondary: #b6c4d6;
+
+  /* Кнопки зелёные */
+  --btn-green: #31d28f;
+  --btn-green-hover: #28b678;
+  --btn-green-active: #1f9a63;
+
+  /* Кнопки голубые */
+  --btn-blue: #2fcbff;
+  --btn-blue-hover: #26b0e0;
+  --btn-blue-active: #1f95c2;
+
+  --btn-text: #062133;
+
+  /* Карточки и блоки */
+  --card-bg: #0f213d;
+  --panel-bg: #132a4e;
+  --shadow-strong: 0 8px 24px rgba(0, 0, 0, 0.25);
+
+  /* Акценты и ссылки */
+  --accent: #6fd1ff;
+  --accent-alt: #5ee1b6;
+  --link: #7fd0ff;
+  --link-hover: #a2dfff;
+
+  /* Разделители */
+  --border-soft: rgba(255, 255, 255, 0.06);
+  --border-strong: rgba(255, 255, 255, 0.12);
+
+  /* Формы */
+  --input-bg: #122743;
+  --input-border: rgba(255, 255, 255, 0.14);
+  --input-text: #e8eef6;
+  --input-placeholder: #93a9c4;
+  --input-focus: #2fcbff;
 }
 
 *,
@@ -22,8 +64,10 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background-color: #f4f6fb;
-  color: #0f172a;
+  /* background-color: #f4f6fb; */
+  background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+  /* color: #0f172a; */
+  color: var(--text-primary);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
