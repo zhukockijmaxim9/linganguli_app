@@ -2,32 +2,181 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1.5rem;
+  width: min(75rem, 100%);
+  margin: 0 auto;
+  padding: 1.25rem 1.75rem;
+  background: var(--panel-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--border-soft);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-strong);
 }
 
 .brand {
   display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.brand i {
+  font-size: 1.25rem;
+  color: var(--accent);
 }
 
 .nav {
   display: flex;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .navLink {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.15rem;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 -0.35rem 0;
+  height: 0.15rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-alt));
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.2s ease;
+}
+
+.navLink:hover,
+.navLink:focus-visible {
+  color: var(--text-primary);
+}
+
+.navLink:hover::after,
+.navLink:focus-visible::after {
+  transform: scaleX(1);
 }
 
 .active {
+  color: var(--accent);
+}
+
+.active::after {
+  transform: scaleX(1);
 }
 
 .actions {
   display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .counter {
-  display: flex;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.counter i {
+  color: var(--accent-alt);
 }
 
 .helpBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 1.25rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(120deg, var(--btn-blue), var(--btn-green));
+  color: var(--btn-text);
+  font-weight: 600;
+  font-size: 0.9rem;
+  box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.helpBtn:hover {
+  transform: translateY(-0.1rem);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+}
+
+.helpBtn:active {
+  transform: translateY(0rem);
+  opacity: 0.9;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25);
 }
 
 .avatar {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 0.15rem solid var(--accent);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.35);
+}
+
+.avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+@media (max-width: 62rem) {
+  .bar {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .nav {
+    flex: 1 1 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 48rem) {
+  .bar {
+    padding: 1rem;
+  }
+
+  .brand {
+    flex: 1 1 100%;
+    justify-content: center;
+  }
+
+  .actions {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .helpBtn {
+    width: 100%;
+    justify-content: center;
+  }
 }
