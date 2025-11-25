@@ -91,13 +91,12 @@ const heroStats = [
 function Home() {
   return (
     <main className={styles.page}>
-      {/* Компонент для заднего фона */}
-
+      {/* Компонент заднего фона */}
       <div className={styles.pixelback}>
         <PixelBlast
           variant="square"
           pixelSize={6}
-          color="rgba(27, 209, 30, 1)"
+          color="rgba(27, 209, 191, 1)"
           patternScale={3}
           patternDensity={1.2}
           pixelSizeJitter={0.5}
@@ -142,89 +141,89 @@ function Home() {
       <Navigation />
 
       <section className={styles.hero} id="hero">
-        <div className="container">
-          <div className={styles.heroGrid}>
-            <header className={styles.heroText}>
-              <h1>Изучай Python с удовольствием</h1>
-              <p>
-                Интерактивные уроки, практические задания и мгновенная обратная связь. Сделай программирование своим
-                хобби!
-              </p>
-              <dl className={styles.heroStats}>
-                {heroStats.map((stat) => (
-                  <div key={stat.label}>
-                    <dt className={styles.statNumber}>{stat.value}</dt>
-                    <dd>{stat.label}</dd>
-                  </div>
-                ))}
-              </dl>
-              <button type="button" className="btn btn-primary">
-                <i className="fas fa-play" aria-hidden="true" />
-                <span>Начать обучение</span>
-              </button>
-            </header>
-            <article className={`card ${styles.codeCard}`}>
-              <header className={styles.codeHead}>
-                <span className={styles.codeDots} aria-hidden="true">
-                  ● ● ●
-                </span>
-                <span>main.py</span>
-              </header>
-              <pre className={styles.codeBody}>
-                {`def welcome():
-                    print("Привет, программист!")
-                    return "Успех!"
-
-                result = welcome()
-                print(result)`}
-              </pre>
-            </article>
-          </div>
-        </div>
-      </section>
-      <section className="section" id="courses">
-        <div className="container">
-          <header className="section-head">
-            <h2>Выбери свой путь в Python</h2>
-            <p>Курсы для любого уровня подготовки</p>
-          </header>
-          <div className={styles.cardGrid}>
-            {courseCards.map((course) => (
-              <article key={course.title} className={`${styles.courseCard} ${course.locked ? styles.locked : ""}`}>
-                <header className={styles.courseHead}>
-                  <div className={styles.courseIcon}>
-                    <i className="fas fa-code" aria-hidden="true" />
-                  </div>
-                  <span className="badge">{course.badge}</span>
-                  <div className={styles.progressInfo}>
-                    <div className="progress-track">
-                      <span style={{ width: `${course.progress}%` }} />
-                    </div>
-                    <span>{course.progress}%</span>
-                  </div>
-                </header>
-                <h3>{course.title}</h3>
-                <p>{course.description}</p>
-                <ul className={styles.courseMeta}>
-                  <li>
-                    <i className="fas fa-book" aria-hidden="true" />
-                    {course.lessons}
-                  </li>
-                  <li>
-                    <i className="fas fa-clock" aria-hidden="true" />
-                    {course.hours}
-                  </li>
-                  <li>
-                    <i className="fas fa-trophy" aria-hidden="true" />
-                    {course.reward}
-                  </li>
-                </ul>
-                <button type="button" className={course.locked ? styles.lockedBtn : "btn btn-primary"}>
-                  {course.cta}
-                </button>
-              </article>
+        <header className={styles.heroText}>
+          <h1>
+            Изучайте Python
+            <br />
+            с удовольствием <br />
+            на Linganguli
+          </h1>
+          {/* <p>
+            Интерактивные уроки, практические задания и мгновенная обратная связь. Сделай программирование своим хобби!
+          </p> */}
+          <dl className={styles.heroStats}>
+            {heroStats.map((stat) => (
+              <div key={stat.label} className={styles.card}>
+                <dt className={styles.statNumber}>{stat.value}</dt>
+                <dt className={styles.label}>{stat.label}</dt>
+              </div>
             ))}
-          </div>
+          </dl>
+          <button type="button" className="btn btn-primary">
+            <i className="fas fa-play" aria-hidden="true" />
+            <span>Начать обучение</span>
+          </button>
+        </header>
+
+        <article className={styles.codeCard}>
+          <header className={styles.codeHead}>
+            <span className={styles.codeDots} aria-hidden="true">
+              ● ● ●
+            </span>
+            <span>main.py</span>
+          </header>
+          <pre className={styles.codeBody}>
+            {`def welcome():
+    print("Привет, программист!")
+    return "Успех!"
+
+result = welcome()
+print(result)`}
+          </pre>
+        </article>
+      </section>
+
+      <section className={styles.courses} id="courses">
+        <header className="section-head">
+          <h2>Выбери свой путь в Python</h2>
+          <p>Курсы для любого уровня подготовки</p>
+        </header>
+        <div className={styles.cardGrid}>
+          {courseCards.map((course) => (
+            <article key={course.title} className={`${styles.courseCard} ${course.locked ? styles.locked : ""}`}>
+              <header className={styles.courseHead}>
+                <div className={styles.courseIcon}>
+                  <i className="fas fa-code" aria-hidden="true" />
+                </div>
+                <span className="badge">{course.badge}</span>
+                <div className={styles.progressInfo}>
+                  <div className="progress-track">
+                    <span style={{ width: `${course.progress}%` }} />
+                  </div>
+                  <span>{course.progress}%</span>
+                </div>
+              </header>
+              <h3>{course.title}</h3>
+              <p>{course.description}</p>
+              <ul className={styles.courseMeta}>
+                <li>
+                  <i className="fas fa-book" aria-hidden="true" />
+                  {course.lessons}
+                </li>
+                <li>
+                  <i className="fas fa-clock" aria-hidden="true" />
+                  {course.hours}
+                </li>
+                <li>
+                  <i className="fas fa-trophy" aria-hidden="true" />
+                  {course.reward}
+                </li>
+              </ul>
+              <button type="button" className={course.locked ? styles.lockedBtn : "btn btn-primary"}>
+                {course.cta}
+              </button>
+            </article>
+          ))}
         </div>
       </section>
       <section className="section" id="practice">
