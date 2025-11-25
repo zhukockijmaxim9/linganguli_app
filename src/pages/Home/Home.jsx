@@ -92,7 +92,7 @@ function Home() {
   return (
     <main className={styles.page}>
       {/* Компонент для заднего фона */}
-      <div style={{ width: "100%", height: "600px", position: "absolute" }}>
+      <div style={{ width: "100%", height: "800px", position: "absolute" }}>
         <PixelBlast
           variant="square"
           pixelSize={6}
@@ -100,7 +100,7 @@ function Home() {
           patternScale={3}
           patternDensity={1.2}
           pixelSizeJitter={0.5}
-          enableRipples
+          enableRipples={false}
           rippleSpeed={0.4}
           rippleThickness={0.12}
           rippleIntensityScale={1.5}

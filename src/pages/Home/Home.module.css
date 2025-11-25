@@ -1,73 +1,112 @@
-.page {}
+.page {
+  position: relative;
+}
 
-.hero {}
+.hero {
+  z-index: 100;
+}
 
-.heroGrid {}
+.heroGrid {
+}
 
-.heroText {}
+.heroText {
+}
 
-.heroStats {}
+.heroStats {
+}
 
-.statNumber {}
+.statNumber {
+}
 
-.codeCard {}
+.codeCard {
+}
 
-.codeHead {}
+.codeHead {
+}
 
-.codeDots {}
+.codeDots {
+}
 
-.codeBody {}
+.codeBody {
+}
 
-.cardGrid {}
+.cardGrid {
+}
 
-.courseCard {}
+.courseCard {
+}
 
-.locked {}
+.locked {
+}
 
-.courseHead {}
+.courseHead {
+}
 
-.courseIcon {}
+.courseIcon {
+}
 
-.progressInfo {}
+.progressInfo {
+}
 
-.courseMeta {}
+.courseMeta {
+}
 
-.lockedBtn {}
+.lockedBtn {
+}
 
-.taskCard {}
+.taskCard {
+}
 
-.taskHead {}
+.taskHead {
+}
 
-.hints {}
+.hints {
+}
 
-.achievementCard {}
+.achievementCard {
+}
 
-.earned {}
+.earned {
+}
 
-.achievementHead {}
+.achievementHead {
+}
 
-.modal {}
+.modal {
+}
 
-.modalHead {}
+.modalHead {
+}
 
-.modalBody {}
+.modalBody {
+}
 
-.avatarLarge {}
+.avatarLarge {
+}
 
-.rating {}
+.rating {
+}
 
-.contactList {}
+.contactList {
+}
 
-.editorActions {}
+.editorActions {
+}
 
-.editor {}
+.editor {
+}
 
-.editorBar {}
+.editorBar {
+}
 
-.output {}
+.output {
+}
 
-.outputHead {}
+.outputHead {
+}
 
-.outputBody {}
+.outputBody {
+}
 
-.themeToggle {}
+.themeToggle {
+}
