@@ -1,9 +1,20 @@
 .page {
   position: relative;
+  overflow: hidden;
 }
 
 .hero {
-  z-index: 100;
+  z-index: 1;
+  position: relative;
+  margin-top: 7rem;
+}
+
+.pixelback {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  max-height: 800px;
 }
 
 .heroGrid {

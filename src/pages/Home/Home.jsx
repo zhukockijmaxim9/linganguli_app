@@ -92,7 +92,8 @@ function Home() {
   return (
     <main className={styles.page}>
       {/* Компонент для заднего фона */}
-      <div style={{ width: "100%", height: "800px", position: "absolute" }}>
+
+      <div className={styles.pixelback}>
         <PixelBlast
           variant="square"
           pixelSize={6}
@@ -140,7 +141,7 @@ function Home() {
 
       <Navigation />
 
-      <section className={`section ${styles.hero}`} id="hero">
+      <section className={styles.hero} id="hero">
         <div className="container">
           <div className={styles.heroGrid}>
             <header className={styles.heroText}>
@@ -171,11 +172,11 @@ function Home() {
               </header>
               <pre className={styles.codeBody}>
                 {`def welcome():
-    print("Привет, программист!")
-    return "Успех!"
+                    print("Привет, программист!")
+                    return "Успех!"
 
-result = welcome()
-print(result)`}
+                result = welcome()
+                print(result)`}
               </pre>
             </article>
           </div>
@@ -189,7 +190,7 @@ print(result)`}
           </header>
           <div className={styles.cardGrid}>
             {courseCards.map((course) => (
-              <article key={course.title} className={`card ${styles.courseCard} ${course.locked ? styles.locked : ""}`}>
+              <article key={course.title} className={`${styles.courseCard} ${course.locked ? styles.locked : ""}`}>
                 <header className={styles.courseHead}>
                   <div className={styles.courseIcon}>
                     <i className="fas fa-code" aria-hidden="true" />
@@ -204,7 +205,7 @@ print(result)`}
                 </header>
                 <h3>{course.title}</h3>
                 <p>{course.description}</p>
-                <ul className={`${styles.courseMeta} list-clean`}>
+                <ul className={styles.courseMeta}>
                   <li>
                     <i className="fas fa-book" aria-hidden="true" />
                     {course.lessons}
