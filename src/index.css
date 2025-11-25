@@ -64,13 +64,14 @@
 body {
   margin: 0;
   min-height: 100vh;
-  /* background-color: #f4f6fb; */
   background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
-  /* color: #0f172a; */
   color: var(--text-primary);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+html {
+  size: 14px;
 }
 
 h1,

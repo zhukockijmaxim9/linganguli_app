@@ -1,100 +1,128 @@
-import styles from './Home.module.css'
+import styles from "./Home.module.css";
+import Navigation from "../../components/Navigation/Navigation";
 
 const courseCards = [
   {
-    title: 'Основы Python',
-    level: 'beginner',
-    badge: 'Популярный',
-    description: 'Изучите базовые концепции программирования и синтаксис Python.',
-    lessons: '15 уроков',
-    hours: '3 часа',
-    reward: '50 XP',
+    title: "Основы Python",
+    level: "beginner",
+    badge: "Популярный",
+    description: "Изучите базовые концепции программирования и синтаксис Python.",
+    lessons: "15 уроков",
+    hours: "3 часа",
+    reward: "50 XP",
     progress: 25,
-    cta: 'Продолжить',
+    cta: "Продолжить",
     locked: false,
   },
   {
-    title: 'Структуры данных',
-    level: 'intermediate',
-    badge: 'Новый',
-    description: 'Списки, словари, кортежи и работа с данными.',
-    lessons: '20 уроков',
-    hours: '5 часов',
-    reward: '100 XP',
+    title: "Структуры данных",
+    level: "intermediate",
+    badge: "Новый",
+    description: "Списки, словари, кортежи и работа с данными.",
+    lessons: "20 уроков",
+    hours: "5 часов",
+    reward: "100 XP",
     progress: 0,
-    cta: 'Начать',
+    cta: "Начать",
     locked: false,
   },
   {
-    title: 'ООП и модули',
-    level: 'advanced',
-    badge: 'Premium',
-    description: 'Объектно-ориентированное программирование и создание модулей.',
-    lessons: '25 уроков',
-    hours: '8 часов',
-    reward: '200 XP',
+    title: "ООП и модули",
+    level: "advanced",
+    badge: "Premium",
+    description: "Объектно-ориентированное программирование и создание модулей.",
+    lessons: "25 уроков",
+    hours: "8 часов",
+    reward: "200 XP",
     progress: 0,
-    cta: 'Заблокировано',
+    cta: "Заблокировано",
     locked: true,
   },
-]
+];
 
 const practiceTasks = [
   {
-    title: 'Калькулятор',
-    difficulty: 'Легко',
-    difficultyIcon: 'fas fa-leaf',
-    xp: '+10 XP',
-    description: 'Создайте простой калькулятор, который выполняет основные арифметические операции.',
-    hints: ['💡 Используйте input() для ввода'],
+    title: "Калькулятор",
+    difficulty: "Легко",
+    difficultyIcon: "fas fa-leaf",
+    xp: "+10 XP",
+    description: "Создайте простой калькулятор, который выполняет основные арифметические операции.",
+    hints: ["💡 Используйте input() для ввода"],
   },
-]
+];
 
 const achievements = [
   {
-    icon: 'fas fa-fire',
-    title: 'Первые шаги',
-    description: 'Завершите первый урок',
+    icon: "fas fa-fire",
+    title: "Первые шаги",
+    description: "Завершите первый урок",
     progress: 100,
     earned: true,
   },
   {
-    icon: 'fas fa-code',
-    title: 'Программист',
-    description: 'Напишите 10 программ',
+    icon: "fas fa-code",
+    title: "Программист",
+    description: "Напишите 10 программ",
     progress: 100,
     earned: true,
   },
   {
-    icon: 'fas fa-trophy',
-    title: 'Мастер Python',
-    description: 'Завершите все курсы',
+    icon: "fas fa-trophy",
+    title: "Мастер Python",
+    description: "Завершите все курсы",
     progress: 30,
     earned: false,
   },
-]
+];
 
 const contactOptions = [
-  { icon: 'fas fa-phone', label: 'Позвонить сейчас' },
-  { icon: 'fas fa-comments', label: 'Написать сообщение' },
-  { icon: 'fas fa-video', label: 'Видеозвонок' },
-]
+  { icon: "fas fa-phone", label: "Позвонить сейчас" },
+  { icon: "fas fa-comments", label: "Написать сообщение" },
+  { icon: "fas fa-video", label: "Видеозвонок" },
+];
 
 const heroStats = [
-  { label: 'уроков', value: '50+' },
-  { label: 'задач', value: '200+' },
-  { label: 'студентов', value: '10 000+' },
-]
+  { label: "уроков", value: "50+" },
+  { label: "задач", value: "200+" },
+  { label: "студентов", value: "10 000+" },
+];
 
 function Home() {
   return (
     <main className={styles.page}>
+      <header className={styles.bar}>
+        <div className={styles.brand}>
+          <i className="fas fa-code" aria-hidden="true" />
+          <span>Linganguli</span>
+        </div>
+        <Navigation />
+        <div className={styles.actions}>
+          <div className={styles.counter}>
+            <i className="fas fa-fire" aria-hidden="true" />
+            <span>7</span>
+          </div>
+          <div className={styles.counter}>
+            <i className="fas fa-star" aria-hidden="true" />
+            <span>1 250 XP</span>
+          </div>
+          <button type="button" className={styles.helpBtn}>
+            <i className="fas fa-heart" aria-hidden="true" />
+            <span>Психолог</span>
+          </button>
+          <div className={styles.avatar}>
+            <img src="https://via.placeholder.com/40x40/4CAF50/FFFFFF?text=U" alt="Профиль" />
+          </div>
+        </div>
+      </header>
       <section className={`section ${styles.hero}`} id="hero">
         <div className="container">
           <div className={styles.heroGrid}>
             <header className={styles.heroText}>
               <h1>Изучай Python с удовольствием</h1>
-              <p>Интерактивные уроки, практические задания и мгновенная обратная связь. Сделай программирование своим хобби!</p>
+              <p>
+                Интерактивные уроки, практические задания и мгновенная обратная связь. Сделай программирование своим
+                хобби!
+              </p>
               <dl className={styles.heroStats}>
                 {heroStats.map((stat) => (
                   <div key={stat.label}>
@@ -116,7 +144,7 @@ function Home() {
                 <span>main.py</span>
               </header>
               <pre className={styles.codeBody}>
-{`def welcome():
+                {`def welcome():
     print("Привет, программист!")
     return "Успех!"
 
@@ -136,7 +164,7 @@ print(result)`}
           </header>
           <div className={styles.cardGrid}>
             {courseCards.map((course) => (
-              <article key={course.title} className={`card ${styles.courseCard} ${course.locked ? styles.locked : ''}`}>
+              <article key={course.title} className={`card ${styles.courseCard} ${course.locked ? styles.locked : ""}`}>
                 <header className={styles.courseHead}>
                   <div className={styles.courseIcon}>
                     <i className="fas fa-code" aria-hidden="true" />
@@ -165,7 +193,7 @@ print(result)`}
                     {course.reward}
                   </li>
                 </ul>
-                <button type="button" className={course.locked ? styles.lockedBtn : 'btn btn-primary'}>
+                <button type="button" className={course.locked ? styles.lockedBtn : "btn btn-primary"}>
                   {course.cta}
                 </button>
               </article>
@@ -214,7 +242,10 @@ print(result)`}
           </header>
           <div className={styles.cardGrid}>
             {achievements.map((item) => (
-              <article key={item.title} className={`card ${styles.achievementCard} ${item.earned ? styles.earned : ''}`}>
+              <article
+                key={item.title}
+                className={`card ${styles.achievementCard} ${item.earned ? styles.earned : ""}`}
+              >
                 <header className={styles.achievementHead}>
                   <i className={item.icon} aria-hidden="true" />
                   <h3>{item.title}</h3>
@@ -326,7 +357,7 @@ print(result)`}
         <i className="fas fa-moon" aria-hidden="true" />
       </button>
     </main>
-  )
+  );
 }
 
-export default Home
+export default Home;
