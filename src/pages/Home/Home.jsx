@@ -1,5 +1,6 @@
 import styles from "./Home.module.css";
 import Navigation from "../../components/Navigation/Navigation";
+import PixelBlast from "../../components/PixelBlast/PixelBlast";
 
 const courseCards = [
   {
@@ -90,12 +91,34 @@ const heroStats = [
 function Home() {
   return (
     <main className={styles.page}>
-      <header className={styles.bar}>
+      {/* Компонент для заднего фона */}
+      <div style={{ width: "100%", height: "600px", position: "absolute" }}>
+        <PixelBlast
+          variant="square"
+          pixelSize={6}
+          color="rgba(27, 209, 30, 1)"
+          patternScale={3}
+          patternDensity={1.2}
+          pixelSizeJitter={0.5}
+          enableRipples
+          rippleSpeed={0.4}
+          rippleThickness={0.12}
+          rippleIntensityScale={1.5}
+          liquid={false}
+          liquidStrength={0.12}
+          liquidRadius={1.2}
+          liquidWobbleSpeed={5}
+          speed={0.6}
+          edgeFade={0.25}
+          transparent
+        />
+      </div>
+
+      {/* <header className={styles.bar}>
         <div className={styles.brand}>
           <i className="fas fa-code" aria-hidden="true" />
           <span>Linganguli</span>
         </div>
-        <Navigation />
         <div className={styles.actions}>
           <div className={styles.counter}>
             <i className="fas fa-fire" aria-hidden="true" />
@@ -113,7 +136,10 @@ function Home() {
             <img src="https://via.placeholder.com/40x40/4CAF50/FFFFFF?text=U" alt="Профиль" />
           </div>
         </div>
-      </header>
+      </header> */}
+
+      <Navigation />
+
       <section className={`section ${styles.hero}`} id="hero">
         <div className="container">
           <div className={styles.heroGrid}>
@@ -155,7 +181,6 @@ print(result)`}
           </div>
         </div>
       </section>
-
       <section className="section" id="courses">
         <div className="container">
           <header className="section-head">
@@ -201,7 +226,6 @@ print(result)`}
           </div>
         </div>
       </section>
-
       <section className="section" id="practice">
         <div className="container">
           <header className="section-head">
@@ -233,7 +257,6 @@ print(result)`}
           </div>
         </div>
       </section>
-
       <section className="section" id="achievements">
         <div className="container">
           <header className="section-head">
@@ -262,7 +285,6 @@ print(result)`}
           </div>
         </div>
       </section>
-
       <section className="section">
         <div className="container">
           <header className="section-head">
@@ -299,7 +321,6 @@ print(result)`}
           </article>
         </div>
       </section>
-
       <section className="section">
         <div className="container">
           <header className="section-head">
@@ -352,7 +373,6 @@ print(result)`}
           </article>
         </div>
       </section>
-
       <button type="button" className={styles.themeToggle} aria-label="Сменить тему">
         <i className="fas fa-moon" aria-hidden="true" />
       </button>

@@ -13,8 +13,8 @@
   background-color: #f4f6fb;
 
   /* Фон */
-  --bg-gradient-start: #0c1f3d;
-  --bg-gradient-end: #09162c;
+  /* --bg-gradient-start: #0c1f3d;
+  --bg-gradient-end: #09162c; */
 
   /* Текст */
   --text-primary: #e8eef6;
@@ -64,7 +64,8 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+  /* background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end)); */
+  background-color: rgb(0, 0, 0);
   color: var(--text-primary);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
