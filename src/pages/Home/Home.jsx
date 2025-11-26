@@ -1,6 +1,7 @@
 import styles from "./Home.module.css";
 import Navigation from "../../components/Navigation/Navigation";
 import PixelBlast from "../../components/PixelBlast/PixelBlast";
+import Button from "../../components/Button/Button";
 
 const courseCards = [
   {
@@ -159,10 +160,11 @@ function Home() {
               </div>
             ))}
           </dl>
-          <button type="button" className="btn btn-primary">
+          {/* <button type="button" className="btn btn-primary">
             <i className="fas fa-play" aria-hidden="true" />
             <span>Начать обучение</span>
-          </button>
+          </button> */}
+          <Button text="Начать обучение" size="large" maincolor={false} />
         </header>
 
         <article className={styles.codeCard}>
