@@ -115,30 +115,6 @@ function Home() {
         />
       </div>
 
-      {/* <header className={styles.bar}>
-        <div className={styles.brand}>
-          <i className="fas fa-code" aria-hidden="true" />
-          <span>Linganguli</span>
-        </div>
-        <div className={styles.actions}>
-          <div className={styles.counter}>
-            <i className="fas fa-fire" aria-hidden="true" />
-            <span>7</span>
-          </div>
-          <div className={styles.counter}>
-            <i className="fas fa-star" aria-hidden="true" />
-            <span>1 250 XP</span>
-          </div>
-          <button type="button" className={styles.helpBtn}>
-            <i className="fas fa-heart" aria-hidden="true" />
-            <span>Психолог</span>
-          </button>
-          <div className={styles.avatar}>
-            <img src="https://via.placeholder.com/40x40/4CAF50/FFFFFF?text=U" alt="Профиль" />
-          </div>
-        </div>
-      </header> */}
-
       <Navigation />
 
       <section className={styles.hero} id="hero">
@@ -149,9 +125,7 @@ function Home() {
             с удовольствием <br />
             на Linganguli
           </h1>
-          {/* <p>
-            Интерактивные уроки, практические задания и мгновенная обратная связь. Сделай программирование своим хобби!
-          </p> */}
+
           <dl className={styles.heroStats}>
             {heroStats.map((stat) => (
               <div key={stat.label} className={styles.card}>
@@ -160,10 +134,6 @@ function Home() {
               </div>
             ))}
           </dl>
-          {/* <button type="button" className="btn btn-primary">
-            <i className="fas fa-play" aria-hidden="true" />
-            <span>Начать обучение</span>
-          </button> */}
           <Button text="Начать обучение" size="large" maincolor={false} />
         </header>
 
@@ -228,37 +198,37 @@ print(result)`}
           ))}
         </div>
       </section>
+
       <section className="section" id="practice">
-        <div className="container">
-          <header className="section-head">
-            <h2>Практика каждый день</h2>
-            <p>Задачи для закрепления знаний</p>
-          </header>
-          <div className={styles.cardGrid}>
-            {practiceTasks.map((task) => (
-              <article key={task.title} className={`card ${styles.taskCard}`}>
-                <header className={styles.taskHead}>
-                  <span>
-                    <i className={task.difficultyIcon} aria-hidden="true" />
-                    {task.difficulty}
-                  </span>
-                  <span>{task.xp}</span>
-                </header>
-                <h3>{task.title}</h3>
-                <p>{task.description}</p>
-                <ul className={`${styles.hints} list-clean`}>
-                  {task.hints.map((hint) => (
-                    <li key={hint}>{hint}</li>
-                  ))}
-                </ul>
-                <button type="button" className="btn btn-primary">
-                  Решить
-                </button>
-              </article>
-            ))}
-          </div>
+        <header className="section-head">
+          <h2>Практика каждый день</h2>
+          <p>Задачи для закрепления знаний</p>
+        </header>
+        <div className={styles.cardGrid}>
+          {practiceTasks.map((task) => (
+            <article key={task.title} className={`card ${styles.taskCard}`}>
+              <header className={styles.taskHead}>
+                <span>
+                  <i className={task.difficultyIcon} aria-hidden="true" />
+                  {task.difficulty}
+                </span>
+                <span>{task.xp}</span>
+              </header>
+              <h3>{task.title}</h3>
+              <p>{task.description}</p>
+              <ul className={`${styles.hints} list-clean`}>
+                {task.hints.map((hint) => (
+                  <li key={hint}>{hint}</li>
+                ))}
+              </ul>
+              <button type="button" className="btn btn-primary">
+                Решить
+              </button>
+            </article>
+          ))}
         </div>
       </section>
+
       <section className="section" id="achievements">
         <div className="container">
           <header className="section-head">
@@ -287,6 +257,7 @@ print(result)`}
           </div>
         </div>
       </section>
+
       <section className="section">
         <div className="container">
           <header className="section-head">
@@ -323,6 +294,7 @@ print(result)`}
           </article>
         </div>
       </section>
+
       <section className="section">
         <div className="container">
           <header className="section-head">
