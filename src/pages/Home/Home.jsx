@@ -125,7 +125,6 @@ function Home() {
             с удовольствием <br />
             на Linganguli
           </h1>
-
           <dl className={styles.heroStats}>
             {heroStats.map((stat) => (
               <div key={stat.label} className={styles.card}>
@@ -134,7 +133,7 @@ function Home() {
               </div>
             ))}
           </dl>
-          <Button text="Начать обучение" size="large" maincolor={false} />
+          <Button variant="primary" size="large" text="Начать обучение" />{" "}
         </header>
 
         <article className={styles.codeCard}>
@@ -191,9 +190,7 @@ print(result)`}
                   {course.reward}
                 </li>
               </ul>
-              <button type="button" className={course.locked ? styles.lockedBtn : "btn btn-primary"}>
-                {course.cta}
-              </button>
+              <Button variant={course.locked ? "locked" : "primary"} text={course.cta} disabled={course.locked} />
             </article>
           ))}
         </div>
@@ -221,9 +218,7 @@ print(result)`}
                   <li key={hint}>{hint}</li>
                 ))}
               </ul>
-              <button type="button" className="btn btn-primary">
-                Решить
-              </button>
+              <Button variant="primary" text="Решить" />{" "}
             </article>
           ))}
         </div>
@@ -294,62 +289,6 @@ print(result)`}
           </article>
         </div>
       </section>
-
-      <section className="section">
-        <div className="container">
-          <header className="section-head">
-            <h2>Редактор кода</h2>
-            <p>Пробуйте идеи прямо на платформе</p>
-          </header>
-          <article className={`card ${styles.modal}`}>
-            <header className={styles.modalHead}>
-              <h3>main.py</h3>
-              <div className={styles.editorActions}>
-                <button type="button" className="btn btn-secondary">
-                  Запустить
-                </button>
-                <button type="button" className="btn btn-secondary">
-                  Проверить
-                </button>
-              </div>
-            </header>
-            <div className={styles.modalBody}>
-              <div className={styles.editor}>
-                <div className={styles.editorBar}>
-                  <select defaultValue="3.11" aria-label="Версия Python">
-                    <option value="3.9">Python 3.9</option>
-                    <option value="3.10">Python 3.10</option>
-                    <option value="3.11">Python 3.11</option>
-                  </select>
-                </div>
-                <textarea
-                  defaultValue={`def hello_world():
-    print("Привет, мир!")
-    return "Успех!"
-
-result = hello_world()
-print(result)`}
-                />
-              </div>
-              <section className={styles.output}>
-                <header className={styles.outputHead}>
-                  <span>Вывод</span>
-                  <button type="button" className="btn btn-secondary">
-                    Очистить
-                  </button>
-                </header>
-                <div className={styles.outputBody}>
-                  <div>Привет, мир!</div>
-                  <div>Успех!</div>
-                </div>
-              </section>
-            </div>
-          </article>
-        </div>
-      </section>
-      <button type="button" className={styles.themeToggle} aria-label="Сменить тему">
-        <i className="fas fa-moon" aria-hidden="true" />
-      </button>
     </main>
   );
 }

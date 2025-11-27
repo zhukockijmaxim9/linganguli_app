@@ -16,30 +16,22 @@
   --text-primary: #e8f6ec;
   --text-secondary: #b6d6bf;
 
-  /* Кнопки зелёные */
+  /* Кнопки */
   --btn-green: #31d28f;
   --btn-green-hover: #28b678;
   --btn-green-active: #1f9a63;
-
-  /* Кнопки голубые */
   --btn-blue: #2fcbff;
   --btn-blue-hover: #26b0e0;
   --btn-blue-active: #1f95c2;
-
   --btn-text: #062133;
 
-  /* Карточки и блоки */
-  --card-bg: #05150c;
-  --panel-bg: #134e1e;
-  --shadow-strong: 0 8px 24px rgba(0, 0, 0, 0.25);
-
-  /* Акценты и ссылки */
+  /* Акценты */
   --accent: #6fff9d;
   --accent-alt: #5ee1b6;
   --link: #7fffae;
   --link-hover: #a2ffc3;
 
-  /* Разделители */
+  /* Границы */
   --border-soft: rgba(255, 255, 255, 0.06);
   --border-strong: rgba(255, 255, 255, 0.12);
 
@@ -60,14 +52,15 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background-color: rgb(0, 0, 0);
+  background-color: #000;
   color: var(--text-primary);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
+
 html {
-  size: 14px;
+  font-size: 14px;
 }
 
 h1,
@@ -115,4 +108,147 @@ pre,
   font-family: var(--font-code);
   font-weight: 500;
   letter-spacing: 0;
+}
+
+/* ========== ГЛОБАЛЬНЫЕ UI-КОМПОНЕНТЫ ========== */
+
+.container {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+}
+
+.section {
+  margin: 6rem auto;
+  width: 100%;
+  padding: 0 clamp(1.25rem, 4vw, 3.5rem);
+  position: relative;
+  z-index: 1;
+}
+
+.section-head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.section-head h2 {
+  font-size: clamp(2rem, 3vw, 2.75rem);
+  text-shadow: 0 0 10px black;
+}
+
+.section-head p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 1.5rem;
+  text-shadow: 0 0 10px black;
+}
+
+/* Карточки */
+.card {
+  position: relative;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  border: 1px solid var(--border-soft);
+  background: rgba(5, 12, 16, 0.9);
+  color: var(--text-primary);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Бейджи */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Прогресс-бар */
+.progress-track {
+  width: 100%;
+  height: 0.35rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.progress-track span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--btn-blue), var(--btn-green));
+  transition: width 0.4s ease;
+}
+
+/* Списки без стилей */
+.list-clean {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* ========== КНОПКИ (глобальные) ========== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  border-radius: 999px;
+  border: none;
+  padding: 0.85rem 1.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(120deg, var(--btn-green), var(--btn-blue));
+  color: var(--btn-text);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+}
+
+.btn-primary:hover {
+  transform: translateY(-0.15rem);
+  filter: brightness(1.05);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text-primary);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+.btn-secondary:hover {
+  transform: translateY(-0.1rem);
+}
+
+.btn-locked {
+  padding: 0.85rem 1.75rem;
+  border-radius: 999px;
+  border: 1px dashed rgba(255, 255, 255, 0.35);
+  background: transparent;
+  color: var(--text-secondary);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: not-allowed;
+  transition: color 0.2s ease;
+}
+
+.btn-locked:hover {
+  color: var(--accent);
 }

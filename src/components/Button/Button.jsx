@@ -1,31 +1,47 @@
 import styles from "./Button.module.css";
 
-const COLOR_CLASSES = {
+const VARIANT_CLASSES = {
+  primary: "btn btn-primary",
+  secondary: "btn btn-secondary",
+  locked: "btn btn-locked",
   green: styles.green,
   blue: styles.blue,
   transparent: styles.transparent,
 };
 
 function Button({
-  text,
   children,
+  text,
   size = "medium",
-  mainColor = true,
+  variant, // новый проп: primary | secondary | locked | green | blue | transparent
+  mainColor, // оставлен для обратной совместимости
   maincolor,
-  color,
+  disabled,
   className = "",
   type = "button",
   ...props
 }) {
-  const fallbackColor = (maincolor ?? mainColor) ? "green" : "blue";
-  const colorClass = COLOR_CLASSES[color] || COLOR_CLASSES[fallbackColor] || COLOR_CLASSES.green;
-  const sizeClass = styles[size] || styles.medium;
   const content = children ?? text ?? "Button";
 
-  const buttonClassName = [styles.button, colorClass, sizeClass, className].filter(Boolean).join(" ");
+  // Определяем вариант
+  let variantKey = variant;
+  if (!variantKey) {
+    const useMain = maincolor ?? mainColor;
+    variantKey = useMain === false ? "secondary" : "primary";
+  }
+
+  const variantClass = VARIANT_CLASSES[variantKey] || VARIANT_CLASSES.primary;
+  const sizeClass = styles[size] || styles.medium;
+
+  const isLocked = variantKey === "locked";
+  const finalDisabled = disabled || isLocked;
+
+  const classNames = [styles.button, sizeClass, variantClass, finalDisabled && styles.disabled, className]
+    .filter(Boolean)
+    .join(" ");
 
   return (
-    <button type={type} className={buttonClassName} {...props}>
+    <button type={type} className={classNames} disabled={finalDisabled} {...props}>
       {content}
     </button>
   );
