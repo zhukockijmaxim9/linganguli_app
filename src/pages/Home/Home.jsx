@@ -120,7 +120,7 @@ function Home() {
       <section className={styles.hero} id="hero">
         <header className={styles.heroText}>
           <h1>
-            Изучайте Python
+            Обучайтесь
             <br />
             с удовольствием <br />
             на Linganguli
