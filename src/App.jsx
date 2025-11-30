@@ -5,6 +5,7 @@ import Courses from "./pages/Courses/Courses";
 import Practice from "./pages/Practice/Practice";
 import Achievements from "./pages/Achievements/Achievements";
 import Profile from "./pages/Profile/Profile";
+import Support from './pages/Support/Support';
 import "./App.css";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
             <Route path="/achievements" element={<Achievements />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="*" element={<Home />} />
+            <Route path="/support" element={<Support />} />
           </Routes>
         </main>
       </div>

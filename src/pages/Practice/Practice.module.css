@@ -1,83 +1,762 @@
-.page {}
+.page {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 2rem;
+}
 
-.pageHead {}
+.pageHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 3rem;
+  gap: 2rem;
+}
 
-.statRow {}
+.pageHead h1 {
+  font-size: 3.5rem;
+  margin: 0 0 1rem 0;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+}
 
-.statValue {}
+.pageHead p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+  text-shadow: 0 0 10px black;
+}
 
-.filterBar {}
+.statRow {
+  display: flex;
+  gap: 3rem;
+  margin: 0;
+  padding: 0;
+}
 
-.tabs {}
+.statRow > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-.tabBtn {}
+.statValue {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.1;
+}
 
-.active {}
+.statRow dd {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
 
-.filters {}
+.filterBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.5rem 2rem;
+  background: linear-gradient(160deg, rgba(5, 21, 12, 0.95), rgba(4, 12, 18, 0.85));
+  border: 2px solid var(--border-soft);
+  backdrop-filter: blur(18px);
+  margin-bottom: 3rem;
+}
 
-.filterField {}
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
 
-.sectionHead {}
+.tabBtn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.85rem;
+}
 
-.dailyGoal {}
+.tabBtn:hover {
+  border-color: rgba(111, 255, 157, 0.3);
+  color: var(--text-primary);
+}
 
-.goalChart {}
+.tabBtn.active {
+  background: linear-gradient(120deg, var(--btn-green), var(--btn-blue));
+  color: var(--btn-text);
+  border-color: transparent;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
 
-.goalText {}
+.filters {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
 
-.cardGrid {}
+.filterField {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
 
-.taskCard {}
+.filterField select {
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.3);
+  color: var(--text-primary);
+  cursor: pointer;
+  min-width: 150px;
+}
 
-.taskHead {}
+.sectionHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  gap: 2rem;
+}
 
-.hints {}
+.sectionHead h2 {
+  font-size: 2.5rem;
+  margin: 0;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+}
 
-.tags {}
+.sectionHead p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
 
-.taskFooter {}
+.dailyGoal {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: linear-gradient(160deg, rgba(5, 21, 12, 0.95), rgba(4, 12, 18, 0.85));
+  border: 2px solid var(--border-soft);
+  border-radius: 1.5rem;
+  backdrop-filter: blur(18px);
+}
 
-.taskStats {}
+.goalChart {
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
 
-.taskActions {}
+.goalChart svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
 
-.challengeMeta {}
+.goalText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: var(--text-primary);
+}
 
-.challengeGrid {}
+.goalText span {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+}
 
-.challengeCard {}
+.goalText small {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
 
-.featured {}
+.dailyGoal h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.2rem;
+  color: var(--text-primary);
+}
 
-.metaRow {}
+.dailyGoal p {
+  margin: 0 0 0.75rem 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
 
-.extra {}
+.dailyGoal span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--accent-alt);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
 
-.primaryBtn {}
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  width: 100%;
+}
 
-.projectCard {}
+.taskCard {
+  padding: 2rem;
+  border-radius: 1.75rem;
+  background: linear-gradient(160deg, rgba(5, 21, 12, 0.95), rgba(4, 12, 18, 0.85));
+  border: 2px solid var(--border-soft);
+  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.35);
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  backdrop-filter: blur(18px);
+}
 
-.projectMeta {}
+.taskCard:hover {
+  transform: translateY(-0.5rem);
+  border-color: rgba(111, 255, 157, 0.45);
+  box-shadow: 0 35px 65px rgba(0, 0, 0, 0.55);
+}
 
-.secondaryBtn {}
+.taskHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.35rem;
+}
 
-.categoryCard {}
+.taskHead span:first-child {
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(111, 255, 157, 0.3);
+  background: rgba(111, 255, 157, 0.1);
+  color: var(--accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
 
-.editorCard {}
+.taskHead span:nth-child(2) {
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  font-weight: 600;
+}
 
-.editorHead {}
+.taskHead span:last-child {
+  color: var(--accent-alt);
+  font-weight: 700;
+}
 
-.editorActions {}
+.taskCard h3 {
+  font-size: 1.5rem;
+  margin: 0;
+  color: var(--text-primary);
+}
 
-.editorBody {}
+.taskCard p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  flex-grow: 1;
+}
 
-.editorPane {}
+.hints {
+  list-style: none;
+  margin: 0.5rem 0 1rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
 
-.editorToolbar {}
+.hints li {
+  position: relative;
+  padding-left: 1.2rem;
+}
 
-.outputPane {}
+.hints li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6rem;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.6;
+}
 
-.outputHead {}
+.tags {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
 
-.outputBody {}
+.tags li {
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(111, 255, 157, 0.3);
+  background: rgba(111, 255, 157, 0.1);
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.taskFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.taskStats {
+  display: flex;
+  gap: 1rem;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.taskActions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.taskActions button {
+  padding: 0.6rem 1.25rem;
+  font-size: 0.85rem;
+}
+
+.challengeMeta {
+  display: flex;
+  gap: 2rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.challengeMeta span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.challengeGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  width: 100%;
+}
+
+.challengeCard {
+  padding: 2rem;
+  border-radius: 1.75rem;
+  background: linear-gradient(160deg, rgba(5, 21, 12, 0.95), rgba(4, 12, 18, 0.85));
+  border: 2px solid var(--border-soft);
+  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.35);
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  backdrop-filter: blur(18px);
+  position: relative;
+}
+
+.challengeCard.featured {
+  border-color: rgba(255, 193, 7, 0.5);
+  background: linear-gradient(160deg, rgba(21, 16, 5, 0.95), rgba(18, 12, 4, 0.85));
+}
+
+.challengeCard.featured::before {
+  content: "Текущий вызов";
+  position: absolute;
+  top: -0.75rem;
+  right: 1.5rem;
+  background: linear-gradient(120deg, #FFC107, #FF9800);
+  color: #000;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.challengeCard:hover {
+  transform: translateY(-0.5rem);
+  border-color: rgba(111, 255, 157, 0.45);
+  box-shadow: 0 35px 65px rgba(0, 0, 0, 0.55);
+}
+
+.challengeCard h3 {
+  font-size: 1.4rem;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.challengeCard p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+.metaRow {
+  display: flex;
+  gap: 1rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.metaRow span {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.extra {
+  padding: 1rem;
+  border-radius: 1rem;
+  background: rgba(111, 255, 157, 0.1);
+  border: 1px solid rgba(111, 255, 157, 0.3);
+  color: var(--accent);
+  font-weight: 600;
+  margin: 0 !important;
+}
+
+.projectCard {
+  padding: 2rem;
+  border-radius: 1.75rem;
+  background: linear-gradient(160deg, rgba(5, 21, 12, 0.95), rgba(4, 12, 18, 0.85));
+  border: 2px solid var(--border-soft);
+  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.35);
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  backdrop-filter: blur(18px);
+  text-align: center;
+  align-items: center;
+}
+
+.projectCard:hover {
+  transform: translateY(-0.5rem);
+  border-color: rgba(111, 255, 157, 0.45);
+  box-shadow: 0 35px 65px rgba(0, 0, 0, 0.55);
+}
+
+.projectCard i {
+  font-size: 3rem;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.projectCard h3 {
+  font-size: 1.4rem;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.projectCard p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+.projectMeta {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.projectMeta span {
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+}
+
+.categoryCard {
+  padding: 2rem;
+  border-radius: 1.75rem;
+  background: linear-gradient(160deg, rgba(5, 21, 12, 0.95), rgba(4, 12, 18, 0.85));
+  border: 2px solid var(--border-soft);
+  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.35);
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  backdrop-filter: blur(18px);
+  text-align: center;
+  align-items: center;
+}
+
+.categoryCard:hover {
+  transform: translateY(-0.5rem);
+  border-color: rgba(111, 255, 157, 0.45);
+  box-shadow: 0 35px 65px rgba(0, 0, 0, 0.55);
+}
+
+.categoryCard i {
+  font-size: 3rem;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.categoryCard h3 {
+  font-size: 1.4rem;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.categoryCard div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.editorCard {
+  padding: 2rem;
+  border-radius: 1.75rem;
+  background: linear-gradient(160deg, rgba(5, 21, 12, 0.95), rgba(4, 12, 18, 0.85));
+  border: 2px solid var(--border-soft);
+  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(18px);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.editorHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.editorHead h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+}
+
+.editorActions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.editorBody {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+  min-height: 400px;
+}
+
+.editorPane {
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(5, 10, 15, 0.85);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.editorToolbar {
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.editorToolbar select {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 0.75rem;
+  padding: 0.35rem 0.75rem;
+  color: var(--text-primary);
+  font-family: var(--font-ui);
+}
+
+.editorPane textarea {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: var(--text-primary);
+  font-family: var(--font-code);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  padding: 1.25rem;
+  resize: none;
+}
+
+.editorPane textarea:focus {
+  outline: none;
+}
+
+.outputPane {
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(4, 10, 15, 0.85);
+  display: flex;
+  flex-direction: column;
+}
+
+.outputHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.outputBody {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.35);
+  padding: 1.25rem;
+  font-family: var(--font-code);
+  color: var(--accent);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  overflow-y: auto;
+}
+
+/* Адаптивность */
+@media (max-width: 1200px) {
+  .editorBody {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .pageHead {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .statRow {
+    gap: 1.5rem;
+  }
+  
+  .filterBar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .filterField select {
+    width: 100%;
+  }
+  
+  .sectionHead {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .dailyGoal {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .cardGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .taskFooter {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .taskActions {
+    justify-content: center;
+  }
+  
+  .challengeMeta {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .metaRow {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .pageHead h1 {
+    font-size: 2.5rem;
+  }
+  
+  .sectionHead h2 {
+    font-size: 2rem;
+  }
+  
+  .editorHead {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .editorActions {
+    justify-content: center;
+  }
+}

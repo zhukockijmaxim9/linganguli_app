@@ -7,6 +7,7 @@ const navLinks = [
   { to: "/practice", label: "Практика" },
   { to: "/achievements", label: "Достижения" },
   { to: "/profile", label: "Профиль" },
+  { to: "/support", label: "Поддержка", isSupport: true },
 ];
 
 function Navigation() {
@@ -16,8 +17,13 @@ function Navigation() {
         <NavLink
           key={link.to}
           to={link.to}
-          className={({ isActive }) => `${styles.navLink}${isActive ? ` ${styles.active}` : ""}`}
+          className={({ isActive }) => `
+            ${styles.navLink} 
+            ${link.isSupport ? styles.supportLink : ''}
+            ${isActive ? ` ${styles.active}` : ''}
+          `}
         >
+          {link.isSupport && <i className="fas fa-heart" aria-hidden="true" />}
           {link.label}
         </NavLink>
       ))}
