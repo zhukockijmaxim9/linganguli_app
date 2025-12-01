@@ -20,24 +20,72 @@
   padding: 0.75rem 1.5rem;
   border-radius: 2rem;
   transition: all 0.3s ease;
-  font-weight: 600;
+  font-weight: 700;
   display: flex;
   align-items: center;
   gap: 0.5rem;
   border: 1px solid transparent;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.85rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Базовая анимация свечения для всех ссылок */
+.navLink::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(111, 255, 157, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.navLink:hover::before {
+  left: 100%;
 }
 
 .navLink:hover {
-  background: rgba(111, 255, 157, 0.1);
+  background: rgba(111, 255, 157, 0.15);
   color: var(--accent);
-  border-color: rgba(111, 255, 157, 0.3);
+  border-color: rgba(111, 255, 157, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 4px 15px rgba(111, 255, 157, 0.3),
+    0 0 20px rgba(111, 255, 157, 0.2);
 }
 
 .navLink.active {
   background: linear-gradient(120deg, var(--btn-green), var(--btn-blue));
   color: var(--btn-text);
   border-color: transparent;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.3),
+    0 0 25px rgba(111, 255, 157, 0.4);
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+/* Анимация свечения для активных ссылок */
+@keyframes glow {
+  0% {
+    box-shadow: 
+      0 4px 15px rgba(0, 0, 0, 0.3),
+      0 0 25px rgba(111, 255, 157, 0.4);
+  }
+  100% {
+    box-shadow: 
+      0 4px 15px rgba(0, 0, 0, 0.3),
+      0 0 35px rgba(111, 255, 157, 0.6),
+      0 0 45px rgba(111, 255, 157, 0.3);
+  }
 }
 
 /* Специальные стили для ссылки поддержки */
@@ -48,17 +96,62 @@
   border: 1px solid rgba(255, 255, 255, 0.2) !important;
 }
 
+.supportLink::before {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+}
+
 .supportLink:hover {
   background: linear-gradient(135deg, #ff5252, #ff7b7b) !important;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+  box-shadow: 
+    0 6px 20px rgba(255, 107, 107, 0.4),
+    0 0 25px rgba(255, 107, 107, 0.3);
   border-color: rgba(255, 255, 255, 0.3) !important;
 }
 
 .supportLink.active {
   background: linear-gradient(135deg, #ff5252, #ff7b7b) !important;
-  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
-  border-color: rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 
+    0 4px 15px rgba(255, 107, 107, 0.4),
+    0 0 30px rgba(255, 107, 107, 0.5);
+  animation: supportGlow 2s ease-in-out infinite alternate;
+}
+
+/* Анимация свечения для активной ссылки поддержки */
+@keyframes supportGlow {
+  0% {
+    box-shadow: 
+      0 4px 15px rgba(255, 107, 107, 0.4),
+      0 0 30px rgba(255, 107, 107, 0.5);
+  }
+  100% {
+    box-shadow: 
+      0 4px 15px rgba(255, 107, 107, 0.4),
+      0 0 40px rgba(255, 107, 107, 0.7),
+      0 0 50px rgba(255, 107, 107, 0.4);
+  }
+}
+
+/* Эффект пульсации для иконки поддержки */
+.supportLink i {
+  animation: heartbeat 2s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 /* Адаптивность */
@@ -71,7 +164,7 @@
   
   .navLink {
     padding: 0.6rem 1rem;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 }
 
@@ -82,10 +175,23 @@
   
   .navLink {
     padding: 0.5rem 0.75rem;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.03em;
   }
   
   .navLink i {
-    display: none; /* Скрываем иконки на очень маленьких экранах */
+    display: none;
   }
+}
+
+/* Дополнительные эффекты для улучшения визуала */
+.navLink:active {
+  transform: translateY(-1px);
+  transition: transform 0.1s ease;
+}
+
+/* Градиентная обводка при фокусе для доступности */
+.navLink:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
