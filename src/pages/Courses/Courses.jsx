@@ -162,8 +162,8 @@ function Courses() {
 
           <header className={styles.pageHead}>
             <div>
-              <h1>Курсы Python</h1>
-              <p>Выберите курс, который подходит вашему уровню, и начните изучать Python.</p>
+              <h1>Курсы</h1>
+              <p>Выберите курс, который подходит вашему уровню</p>
             </div>
             <dl className={styles.statRow}>
               {courseStats.map((stat) => (

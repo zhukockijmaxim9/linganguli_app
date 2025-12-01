@@ -157,7 +157,7 @@ print(result)`}
 
       <section className={styles.courses} id="courses">
         <header className="section-head">
-          <h2>Выбери свой путь в Python</h2>
+          <h2>Выбери свой путь</h2>
           <p>Курсы для любого уровня подготовки</p>
         </header>
         <div className={styles.cardGrid}>
